@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t asnaebeya/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true asnaebeya/docker-react npm run test
